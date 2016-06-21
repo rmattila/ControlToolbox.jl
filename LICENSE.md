@@ -1,4 +1,4 @@
-The ControlBase.jl package is licensed under the MIT "Expat" License:
+The ControlToolbox.jl package is licensed under the MIT "Expat" License:
 
 > Copyright (c) 2016: Arda Aytekin ([aytekin@kth.se](mailto:aytekin@kth.se)),
 > Niklas Everitt ([neveritt@kth.se](mailto:neveritt@kth.se)).
