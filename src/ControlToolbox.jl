@@ -5,15 +5,15 @@ using Reexport
 
 import Base: step
 
-export c2d, lsim, step, impulse
+export c2d, lsim, step, impulse, isstable
 
 using DSP
 
 include("c2d.jl")
-include("Simulation/utils.jl")
-include("Simulation/lsim.jl")
-include("Simulation/step.jl")
-include("Simulation/impulse.jl")
-
+include("simulation/utils.jl")
+include("simulation/lsim.jl")
+include("simulation/step.jl")
+include("simulation/impulse.jl")
+include("analysis/isstable.jl")
 
 end # module
