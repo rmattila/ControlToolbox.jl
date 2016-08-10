@@ -40,8 +40,18 @@ end
 # Discrete SISO Transfer Function
 function lsim{T1<:Real,T2<:AbstractVector}(s::ControlCore.DSisoTf, u::Array{T1},
     t::T2=[], x0...)
-  length(x0) > 0 ? filt(numvec(s), denvec(s), u, x0[1]) :
-                   filt(numvec(s), denvec(s), u)
+
+  # zeropad b and a if necessary
+  b = numvec(s)
+  a = denvec(s)
+  lengthb = length(b)
+  lengtha = length(a)
+  order = max(lengthb,lengtha)
+  b = copy!(zeros(eltype(b),order),order-lengthb+1,b,1)
+  a = copy!(zeros(eltype(a),order),order-lengtha+1,a,1)
+
+  length(x0) > 0 ? filt(b, a, u, x0[1]) :
+                   filt(b, a, u)
 end
 
 #  Discrete MIMO Transfer Function
